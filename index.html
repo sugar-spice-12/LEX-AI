@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LEX AI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js'></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Add Babel Standalone for in-browser JSX/TS compilation -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FACC15'%3E%3Cpath d='M12 3L1 9l4 1-2 8h18l-2-8 4-1L12 3zm0 2.24L16.2 8H7.8L12 5.24zM6.5 11l1 4h9l1-4H6.5z'/%3E%3C/svg%3E" />
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.28.0"
+  }
+}
+</script>
+<style>
+    body.high-contrast {
+        --bg-primary: #000000;
+        --bg-secondary: #111111;
+        --bg-card: #0a0a0a;
+        --text-primary: #ffffff;
+        --text-secondary: #dddddd;
+        --text-muted: #aaaaaa;
+        --border-color: #555555;
+        --accent-color: #FFFF00; /* High-vis yellow */
+        --accent-text-color: #000000;
+    }
+
+    body.high-contrast {
+        background: var(--bg-primary);
+        color: var(--text-primary);
+    }
+    
+    /* Overriding Tailwind classes for high contrast mode */
+    body.high-contrast .bg-slate-900, body.high-contrast .from-slate-900, body.high-contrast .to-indigo-800 { background: var(--bg-primary) !important; }
+    body.high-contrast .bg-gradient-to-br { background: linear-gradient(to bottom right, var(--bg-primary), var(--bg-secondary)) !important; }
+    body.high-contrast .bg-slate-800\/50 { background-color: rgba(10, 10, 10, 0.8) !important; }
+    body.high-contrast .bg-slate-800\/30 { background-color: rgba(10, 10, 10, 0.6) !important; }
+    body.high-contrast .border-slate-700, body.high-contrast .border-slate-700\/50 { border-color: var(--border-color) !important; }
+    body.high-contrast .text-slate-200, body.high-contrast .text-white { color: var(--text-primary) !important; }
+    body.high-contrast .text-slate-300, body.high-contrast .text-slate-400 { color: var(--text-secondary) !important; }
+    body.high-contrast .text-slate-500 { color: var(--text-muted) !important; }
+    body.high-contrast .bg-yellow-400 { background-color: var(--accent-color) !important; }
+    body.high-contrast .text-slate-900 { color: var(--accent-text-color) !important; }
+    body.high-contrast .hover\:bg-yellow-500:hover { background-color: #dddd00 !important; }
+    body.high-contrast .text-yellow-400 { color: var(--accent-color) !important; }
+    body.high-contrast .border-yellow-400\/30 { border-color: rgba(255, 255, 0, 0.3) !important; }
+    body.high-contrast .bg-slate-700 { background-color: #222 !important; }
+    body.high-contrast .hover\:bg-slate-700:hover, body.high-contrast .hover\:bg-slate-800\/50:hover { background-color: #333 !important; }
+    body.high-contrast .hover\:bg-slate-600:hover { background-color: #444 !important; }
+    body.high-contrast .focus\:ring-yellow-500:focus { --tw-ring-color: var(--accent-color) !important; }
+</style>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-slate-900">
+  <div id="root"></div>
+  <!-- Change script type to "text/babel" to be processed by Babel Standalone -->
+  <script type="text/babel" data-type="module" src="/index.tsx"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
